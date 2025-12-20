@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product - Glowing Beauty Store</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <style>
+        .add-product-container {
+            width: 500px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .add-product-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: #333;
+            font-size: 28px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-top: 20px;
+            display: block;
+            color: #555;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            margin-top: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #fafbfc;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #ff4d6d;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(255, 77, 109, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        
+        .color-picker {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 2px solid #e9ecef;
+        }
+
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+            border-color: #ff4d6d;
+        }
+
+        .color-option.selected {
+            border-color: #ff4d6d;
+            box-shadow: 0 0 0 3px rgba(255, 77, 109, 0.2);
+            transform: scale(1.05);
+        }
+
+        button {
+            width: 100%;
+            background: linear-gradient(135deg, #ff4d6d, #ff6b88);
+            color: #fff;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #e03e5b, #ff4d6d);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 77, 109, 0.4);
+        }
+
+        .breadcrumb-wrapper {
+            background-color: #f3f3f3;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .breadcrumb {
+            font-size: 15px;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .breadcrumb a {
+            color: #747171;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            color: #999;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <p>Free shipping on all U.S. orders $50+</p>
+
+       <nav class="navbar px-3 pb-3">
+            <div class="col-4">
+                <div class="collapse navbar-collapse d-flex justify-content-between p-2 " id="navbarNav">
+                    <ul class="navbar-nav d-flex flex-row ">
+                        <li class="nav-item ">
+                            <a class="nav-link active fs-6" href="#">Home <i class=" ms-2"></i></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link fs-6" href="#">Shop <i class="bi bi-chevron-down ms-2"></i></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link fs-6" href="#">Product <i class="bi bi-chevron-down ms-2"></i></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link fs-6" href="#">Pages <i class="bi bi-chevron-down ms-2"></i></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link fs-6" href="#">Blog <i class="bi bi-chevron-down ms-2"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-4 d-flex justify-content-center">
+                <a class="navbar-brand" href="#">
+                    <img src="./images/logo.png" alt="logo" class="logo">
+                </a>
+            </div>
+
+           
+            <div class="col-4 d-flex justify-content-end">
+                <div class="icons d-flex align-items-center gap-2">
+
+                   
+                    <a href="addproduct.html"
+                        class="d-flex align-items-center gap-1 icon-item text-decoration-none text-dark">
+                        <i class="bi bi-plus-circle"></i>
+                        <span>Add Product</span>
+                    </a>
+
+                   
+                    <a href="viewproduct.html"
+                        class="d-flex align-items-center gap-1 icon-item text-decoration-none text-dark">
+                        <i class="bi bi-eye"></i>
+                        <span>View Product</span>
+                    </a>
+
+                    <a href="search.html" class="text-dark text-decoration-none">
+                        <i class="bi bi-search icon-item"></i>
+                    </a>
+
+                    <a href="account.html" class="text-dark text-decoration-none">
+                        <i class="bi bi-person icon-item"></i>
+                    </a>
+
+                    <a href="wishlist.html" class="text-dark text-decoration-none">
+                        <i class="bi bi-star icon-item"></i>
+                    </a>
+
+                    <a href="addtocart.html" class="text-dark text-decoration-none">
+                        <i class="bi bi-bag icon-item"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="breadcrumb-wrapper">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="divider">—</span>
+            <span>Add Product</span>
+        </div>
+    </div>
+
+  
+    <main>
+        <div class="add-product-container">
+            <h2><i class="bi bi-plus-circle me-2"></i>Add Product</h2>
+
+            <form id="addProductForm">
+                <label>Product Name</label>
+                <input type="text" id="name" placeholder="Enter product name" required>
+
+                <label>Image URL</label>
+                <input type="text" id="image" placeholder="https://example.com/image.jpg" required>
+
+                <label>Color</label>
+                <div class="color-picker" id="colorPicker">
+                   
+                </div>
+                <input type="hidden" id="color" value="#ff4d6d">
+
+                <label>Price (₹)</label>
+                <input type="number" id="price" placeholder="0" min="0" step="0.01" required>
+
+                <label>Description</label>
+                <textarea id="desc" rows="3" placeholder="Enter short product description..."></textarea>
+
+                <button type="submit">
+                    <i class="bi bi-check-circle me-2"></i>Add Product
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+       
+        const colors = [
+            '#ff4d6d', '#ff6b9d', '#ff8e8e', '#ffcccb', '#ffb6c1',
+            '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3',
+            '#54a0ff', '#5f27cd', '#00d2d3', '#ff9f43', '#00b894'
+        ];
+
+       
+        const colorPicker = document.getElementById('colorPicker');
+        colors.forEach(color => {
+            const colorOption = document.createElement('div');
+            colorOption.className = 'color-option';
+            colorOption.style.backgroundColor = color;
+            colorOption.title = color;
+            
+            colorOption.addEventListener('click', function() {
+              
+                document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                document.getElementById('color').value = color;
+            });
+            
+            colorPicker.appendChild(colorOption);
+        });
+
+        document.querySelector('.color-option').click();
+
+        const form = document.getElementById("addProductForm");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const newProduct = {
+                id: Date.now(),
+                name: document.getElementById("name").value,
+                image: document.getElementById("image").value,
+                color: document.getElementById("color").value,
+                price: parseFloat(document.getElementById("price").value),
+                description: document.getElementById("desc").value
+            };
+
+            let products = JSON.parse(localStorage.getItem("products")) || [];
+            products.push(newProduct);
+
+            localStorage.setItem("products", JSON.stringify(products));
+
+            alert("✅ Product Added Successfully!");
+            form.reset();
+
+            document.querySelector('.color-option').click();
+            
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1000);
+        });
+    </script>
+
+</body>
+
+</html>
